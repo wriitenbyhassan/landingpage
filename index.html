@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         /* Custom Colors & Base Styles */
         :root {
             --bg-color: #0f1115; /* Deep Charcoal/Black */
@@ -38,14 +41,35 @@
 
         /* Custom Button Styling */
         .btn-primary {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #3b82f6 100%);
+            background-size: 220% 220%;
+            background-position: 0% 50%;
             color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-position 0.6s ease;
+            box-shadow: 0 4px 18px 0 rgba(37, 99, 235, 0.55);
+            transform-origin: center;
         }
+
+        @keyframes btn-primary-hover-pop {
+            0% {
+                transform: translateY(0) scale(1) rotate(0deg);
+                background-position: 0% 50%;
+            }
+            50% {
+                transform: translateY(-3px) scale(1.07) rotate(-1.2deg);
+                background-position: 100% 50%;
+            }
+            100% {
+                transform: translateY(-2px) scale(1.03) rotate(1.2deg);
+                background-position: 50% 50%;
+            }
+        }
+
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.5);
+            animation: btn-primary-hover-pop 1.3s ease-in-out infinite alternate;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.7);
         }
 
         /* Image Styling */
@@ -71,9 +95,26 @@
         }
     </style>
 </head>
-<body class="antialiased leading-relaxed">
+<body class="antialiased leading-relaxed pt-20 md:pt-24">
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 py-20 relative">
+    <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-800 bg-[#0b0d11]/80 backdrop-blur">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="#top" class="flex items-center gap-3">
+                    <img src="assets/logo.png" alt="Written By Hassan logo" class="h-9 w-auto md:h-10">
+                    <span class="text-sm md:text-base font-semibold tracking-wide text-white">Written By Hassan</span>
+                </a>
+                <nav class="flex items-center gap-4 sm:gap-8 text-xs sm:text-sm font-medium text-gray-300">
+                    <a href="#people" class="hover:text-white transition-colors">Mentors</a>
+                    <a href="#process" class="hover:text-white transition-colors">How I Fix It</a>
+                    <a href="#case-study" class="hover:text-white transition-colors whitespace-nowrap">Real Example</a>
+                    <a href="#investment" class="hover:text-white transition-colors">Investment</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="top" class="min-h-screen flex flex-col justify-center items-center px-6 py-20 relative">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-20 pointer-events-none">
             <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-blue-600 rounded-full blur-[128px]"></div>
             <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-purple-600 rounded-full blur-[128px]"></div>
@@ -100,7 +141,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-[#161b22] border-y border-gray-800">
+    <section id="people" class="py-20 bg-[#161b22] border-y border-gray-800">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-12 font-heading text-white" data-aos="fade-up">People Who I Learned From:</h2>
             
@@ -121,9 +162,16 @@
 
                 <div class="flex flex-col items-center gap-4 group" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
-                        <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/695596dd690a6_1_h_Mdi5eMvtfC69sY1p0CVw.jpg" alt="Eugene Schwartz" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/698b8259af322_Eugene-Schwartz.jpg" alt="Eugene Schwartz" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
                     <span class="text-xl font-semibold">Eugene Schwartz</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-4 group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
+                        <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/698b651e3864a_danhenry_logo.jpg" alt="Dan Henry" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <span class="text-xl font-semibold">Dan Henry</span>
                 </div>
             </div>
         </div>
@@ -197,7 +245,7 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-[#161b22] relative overflow-hidden">
+    <section id="process" class="py-24 px-6 bg-[#161b22] relative overflow-hidden">
         <div class="max-w-3xl mx-auto relative z-10">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold font-heading text-white mb-4" data-aos="fade-up">How I Actually Fix This:</h2>
@@ -264,7 +312,7 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white text-gray-900">
+    <section id="case-study" class="py-24 px-6 bg-white text-gray-900">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 font-heading text-center" data-aos="fade-up">Real Example Of How This Works</h2>
             
@@ -346,7 +394,7 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-gradient-to-br from-[#0f1115] to-[#1e232e] border-y border-gray-800">
+    <section id="investment" class="py-24 px-6 bg-gradient-to-br from-[#0f1115] to-[#1e232e] border-y border-gray-800">
         <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold font-heading text-white mb-2">The Investment Talk</h2>
             <p class="text-lg text-gray-500 mb-12 uppercase tracking-widest font-semibold text-xs">(Let's Just Get This Out Of The Way)</p>
