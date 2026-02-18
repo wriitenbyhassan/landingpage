@@ -40,6 +40,15 @@
             .header-inner {
                 gap: 0;
             }
+            header {
+                height: 5.5rem; /* 88px - fixed so body pt can match */
+            }
+            header .header-inner {
+                min-height: 5.5rem;
+            }
+            body {
+                padding-top: 5.5rem; /* Match header height - no gap */
+            }
         }
 
         h1, h2, h3, h4, .font-heading {
@@ -104,7 +113,7 @@
         }
     </style>
 </head>
-<body class="antialiased leading-relaxed pt-24 sm:pt-20">
+<body class="antialiased leading-relaxed pt-20 sm:pt-20">
 
     <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-800 bg-[#0b0d11]/80 backdrop-blur">
         <div class="max-w-5xl mx-auto px-2 sm:px-6 lg:px-8 w-full">
