@@ -77,6 +77,8 @@
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 100%;
+            height: auto;
         }
 
         /* FAQ Accordion Transitions */
@@ -93,18 +95,39 @@
             0%    {opacity: 0; transform: translateY(-10px)}
             100%  {opacity: 1; transform: translateY(0)}
         }
+
+        /* Mobile nav - horizontal scroll, no hamburger */
+        @media (max-width: 767px) {
+            .nav-links {
+                flex: 1;
+                min-w-0;
+                justify-content: flex-end;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+            .nav-links a {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+        }
     </style>
 </head>
-<body class="antialiased leading-relaxed pt-20 md:pt-24">
+<body class="antialiased leading-relaxed pt-16 md:pt-24">
 
     <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-800 bg-[#0b0d11]/80 backdrop-blur">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
-                <a href="#top" class="flex items-center gap-3">
-                    <img src="assets/logo.png" alt="Written By Hassan logo" class="h-9 w-auto md:h-10">
-                    <span class="text-sm md:text-base font-semibold tracking-wide text-white">Written By Hassan</span>
+                <a href="#top" class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <img src="assets/logo.png" alt="Written By Hassan logo" class="h-8 w-auto sm:h-9 md:h-10">
+                    <span class="hidden sm:inline text-xs sm:text-base font-semibold tracking-wide text-white">Written By Hassan</span>
                 </a>
-                <nav class="flex items-center gap-4 sm:gap-8 text-xs sm:text-sm font-medium text-gray-300">
+                <nav class="nav-links flex items-center gap-3 sm:gap-6 md:gap-8 text-xs sm:text-sm font-medium text-gray-300" id="nav-links">
                     <a href="#people" class="hover:text-white transition-colors">Mentors</a>
                     <a href="#process" class="hover:text-white transition-colors">How I Fix It</a>
                     <a href="#case-study" class="hover:text-white transition-colors whitespace-nowrap">Real Example</a>
@@ -114,26 +137,26 @@
         </div>
     </header>
 
-    <section id="top" class="min-h-screen flex flex-col justify-center items-center px-6 py-20 relative">
+    <section id="top" class="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 py-16 sm:py-20 relative">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-20 pointer-events-none">
             <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-blue-600 rounded-full blur-[128px]"></div>
             <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-purple-600 rounded-full blur-[128px]"></div>
         </div>
 
         <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-            <h1 class="text-5xl md:text-7xl font-bold mb-8 tracking-tight text-white">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 tracking-tight text-white">
                 Came from my <span class="text-blue-500">email?</span>
             </h1>
             
-            <div class="space-y-6 text-xl md:text-2xl text-gray-300 font-light">
+            <div class="space-y-4 sm:space-y-6 text-lg sm:text-xl md:text-2xl text-gray-300 font-light">
                 <p>Let's be real.</p>
                 <p>I don't send those breakdowns to waste your time.</p>
                 <p>If I pointed out something in your copy, it's because I saw <span class="text-white font-semibold border-b border-blue-500">real money being left on the table.</span></p>
                 <p>And yeah, I can actually help you fix it. That's why you're here, right?</p>
             </div>
 
-            <div class="mt-12">
-                <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-flex items-center justify-center px-10 py-5 text-xl font-bold rounded-full uppercase tracking-wider">
+            <div class="mt-10 sm:mt-12 w-full max-w-sm sm:max-w-none sm:w-auto">
+                <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-xl font-bold rounded-full uppercase tracking-wider">
                     Let's Talk
                     <span class="ml-2 text-sm opacity-80 normal-case font-normal">(It's Free)</span>
                 </a>
@@ -141,49 +164,49 @@
         </div>
     </section>
 
-    <section id="people" class="py-20 bg-[#161b22] border-y border-gray-800">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12 font-heading text-white" data-aos="fade-up">People Who I Learned From:</h2>
+    <section id="people" class="py-16 sm:py-20 bg-[#161b22] border-y border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 font-heading text-white" data-aos="fade-up">People Who I Learned From:</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center">
-                <div class="flex flex-col items-center gap-4 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 items-center justify-items-center">
+                <div class="flex flex-col items-center gap-3 sm:gap-4 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
                         <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/695595e2d3b5a_Alex_Hormozi.jpg" alt="Alex Hormozi" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
-                    <span class="text-xl font-semibold">Alex Hormozi</span>
+                    <span class="text-base sm:text-xl font-semibold">Alex Hormozi</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-4 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
+                <div class="flex flex-col items-center gap-3 sm:gap-4 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
                         <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/6955965ee1537_Billy-Gene-Shaw-Billy-Gene-is-Marketing-1.jpg" alt="Billy Gene" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
-                    <span class="text-xl font-semibold">Billy Gene</span>
+                    <span class="text-base sm:text-xl font-semibold">Billy Gene</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-4 group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
+                <div class="flex flex-col items-center gap-3 sm:gap-4 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
                         <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/698b8259af322_Eugene-Schwartz.jpg" alt="Eugene Schwartz" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
-                    <span class="text-xl font-semibold">Eugene Schwartz</span>
+                    <span class="text-base sm:text-xl font-semibold">Eugene Schwartz</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-4 group" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
+                <div class="flex flex-col items-center gap-3 sm:gap-4 group col-span-2 md:col-span-1" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
                         <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/698b651e3864a_danhenry_logo.jpg" alt="Dan Henry" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
-                    <span class="text-xl font-semibold">Dan Henry</span>
+                    <span class="text-base sm:text-xl font-semibold">Dan Henry</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-gradient-to-b from-[#0f1115] to-[#13161c]">
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-[#0f1115] to-[#13161c]">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-16 font-heading uppercase tracking-wide" data-aos="fade-up">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 font-heading uppercase tracking-wide" data-aos="fade-up">
                 What people say when I share the insights:
             </h2>
             
-            <div class="space-y-12">
+            <div class="space-y-8 sm:space-y-12">
                 <div data-aos="fade-up">
                     <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/695cfc1c0371f_Screenshot2026-01-06164632.png" alt="Testimonial 1" class="proof-img mx-auto w-full md:w-3/4">
                 </div>
@@ -197,18 +220,18 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white text-gray-900">
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-white text-gray-900">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 font-heading" data-aos="fade-up">Why This Actually Costs You Money</h2>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 font-heading" data-aos="fade-up">Why This Actually Costs You Money</h2>
             
-            <div class="space-y-6 text-xl leading-relaxed text-gray-700" data-aos="fade-up">
+            <div class="space-y-4 sm:space-y-6 text-base sm:text-xl leading-relaxed text-gray-700" data-aos="fade-up">
                 <p class="font-medium">Here's the thing most business owners miss:</p>
                 <p>Your website isn't just sitting there looking pretty.</p>
                 <p>Every visitor is making a decision. Every single one.</p>
                 <p>Either they see you as the obvious choice, or they see you as one of several options they need to compare.</p>
                 
-                <div class="p-6 bg-red-50 border-l-4 border-red-500 my-8 text-left rounded-r-lg">
-                    <p class="font-bold text-red-900 text-2xl mb-2">And when buyers compare, they pick based on price.</p>
+                <div class="p-4 sm:p-6 bg-red-50 border-l-4 border-red-500 my-6 sm:my-8 text-left rounded-r-lg">
+                    <p class="font-bold text-red-900 text-xl sm:text-2xl mb-2">And when buyers compare, they pick based on price.</p>
                     <p class="text-red-800">That's it. That's the game.</p>
                 </div>
 
@@ -219,21 +242,21 @@
                 <p class="font-bold">The words are the problem. And words can be fixed.</p>
             </div>
 
-            <div class="mt-12">
-                <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-block px-10 py-5 text-lg font-bold rounded-full uppercase tracking-wider shadow-xl">
+            <div class="mt-8 sm:mt-12 w-full max-w-sm sm:max-w-none sm:w-auto mx-auto">
+                <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-flex flex-col items-center justify-center w-full sm:w-auto px-6 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-bold rounded-full uppercase tracking-wider shadow-xl">
                     Ready To Stop Competing On Price?
-                    <div class="text-xs font-normal opacity-90 mt-1">Book A Call</div>
+                    <span class="text-xs font-normal opacity-90 mt-1">Book A Call</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-[#0f1115]">
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-[#0f1115]">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-12 font-heading text-white" data-aos="fade-up">Some Reactions On My Emails:</h2>
-            <div class="space-y-12">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 font-heading text-white" data-aos="fade-up">Some Reactions On My Emails:</h2>
+            <div class="space-y-8 sm:space-y-12">
                 <div data-aos="zoom-in">
-                    <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/695cfceae046e_Screenshot2026-01-06165007.png" class="proof-img mx-auto w-auto max-h-[150px]">
+                    <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/695cfceae046e_Screenshot2026-01-06165007.png" class="proof-img mx-auto w-auto max-h-[120px] sm:max-h-[150px]">
                 </div>
                 <div data-aos="zoom-in">
                     <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/695cfd16c3b04_Screenshot2026-01-06165445.png" class="proof-img mx-auto w-full md:w-3/4">
@@ -245,64 +268,64 @@
         </div>
     </section>
 
-    <section id="process" class="py-24 px-6 bg-[#161b22] relative overflow-hidden">
+    <section id="process" class="py-16 sm:py-24 px-4 sm:px-6 bg-[#161b22] relative overflow-hidden">
         <div class="max-w-3xl mx-auto relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold font-heading text-white mb-4" data-aos="fade-up">How I Actually Fix This:</h2>
-                <p class="text-gray-400 text-lg" data-aos="fade-up">Most copywriters will tell you they "understand your business" after a 20-minute Zoom call. <span class="text-white font-semibold">That's not how this works.</span></p>
+            <div class="text-center mb-10 sm:mb-16">
+                <h2 class="text-2xl sm:text-4xl font-bold font-heading text-white mb-4" data-aos="fade-up">How I Actually Fix This:</h2>
+                <p class="text-gray-400 text-base sm:text-lg" data-aos="fade-up">Most copywriters will tell you they "understand your business" after a 20-minute Zoom call. <span class="text-white font-semibold">That's not how this works.</span></p>
             </div>
 
-            <div class="space-y-8">
-                <div class="flex gap-6 items-start" data-aos="fade-right">
-                    <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white text-xl">1</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Deep Analysis</h3>
-                        <p class="text-gray-300 leading-relaxed">I spend 60-90 minutes analyzing everything. Your site. Your competitors' sites. Your testimonials. Your LinkedIn. I'm looking for the gap - the space between how good you actually are and how generic your website makes you sound.</p>
+            <div class="space-y-6 sm:space-y-8">
+                <div class="flex gap-4 sm:gap-6 items-start" data-aos="fade-right">
+                    <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white text-lg sm:text-xl">1</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Deep Analysis</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm sm:text-base">I spend 60-90 minutes analyzing everything. Your site. Your competitors' sites. Your testimonials. Your LinkedIn. I'm looking for the gap - the space between how good you actually are and how generic your website makes you sound.</p>
                     </div>
                 </div>
 
-                <div class="flex gap-6 items-start" data-aos="fade-right" data-aos-delay="100">
-                    <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white text-xl">2</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Find The Money</h3>
-                        <p class="text-gray-300 leading-relaxed">What authority are you sitting on that justifies premium pricing? What differentiators are you treating like footnotes when they should be your entire positioning? Where are you accidentally commoditizing yourself?</p>
+                <div class="flex gap-4 sm:gap-6 items-start" data-aos="fade-right" data-aos-delay="100">
+                    <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white text-lg sm:text-xl">2</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Find The Money</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm sm:text-base">What authority are you sitting on that justifies premium pricing? What differentiators are you treating like footnotes when they should be your entire positioning? Where are you accidentally commoditizing yourself?</p>
                     </div>
                 </div>
 
-                <div class="flex gap-6 items-start" data-aos="fade-right" data-aos-delay="200">
-                    <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white text-xl">3</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-2">The Rebuild</h3>
-                        <p class="text-gray-300 leading-relaxed">New positioning that makes competitors irrelevant. Copy that turns your best advantages into the only reason someone needs to choose you. Messaging that makes your pricing feel justified before you even get on a sales call.</p>
+                <div class="flex gap-4 sm:gap-6 items-start" data-aos="fade-right" data-aos-delay="200">
+                    <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white text-lg sm:text-xl">3</div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">The Rebuild</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm sm:text-base">New positioning that makes competitors irrelevant. Copy that turns your best advantages into the only reason someone needs to choose you. Messaging that makes your pricing feel justified before you even get on a sales call.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-12 p-6 bg-blue-900/20 border border-blue-500/30 rounded-xl text-center" data-aos="zoom-in">
-                <p class="text-xl text-blue-100"><span class="font-bold text-white">The result?</span> Your website stops creating doubt and starts creating certainty. People show up to calls already convinced.</p>
+            <div class="mt-8 sm:mt-12 p-4 sm:p-6 bg-blue-900/20 border border-blue-500/30 rounded-xl text-center" data-aos="zoom-in">
+                <p class="text-base sm:text-xl text-blue-100"><span class="font-bold text-white">The result?</span> Your website stops creating doubt and starts creating certainty. People show up to calls already convinced.</p>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-gradient-to-b from-[#13161c] to-[#0f1115]">
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-[#13161c] to-[#0f1115]">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-12 font-heading text-white" data-aos="fade-up">What I Can Actually Do For You</h2>
+            <h2 class="text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 font-heading text-white" data-aos="fade-up">What I Can Actually Do For You</h2>
             <p class="text-gray-400 mb-12 text-lg">Depending on what you need:</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                <div class="p-6 bg-[#1f2937] rounded-xl border border-gray-700 hover:border-blue-500 transition-colors" data-aos="fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 text-left">
+                <div class="p-4 sm:p-6 bg-[#1f2937] rounded-xl border border-gray-700 hover:border-blue-500 transition-colors" data-aos="fade-up">
                     <h3 class="text-xl font-bold text-white mb-3">Landing Pages</h3>
                     <p class="text-gray-400">That convert cold traffic into qualified leads who actually want to talk to you.</p>
                 </div>
-                <div class="p-6 bg-[#1f2937] rounded-xl border border-gray-700 hover:border-blue-500 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 sm:p-6 bg-[#1f2937] rounded-xl border border-gray-700 hover:border-blue-500 transition-colors" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-xl font-bold text-white mb-3">Sales Pages</h3>
                     <p class="text-gray-400">That justify premium pricing through strategic positioning instead of feature lists.</p>
                 </div>
-                <div class="p-6 bg-[#1f2937] rounded-xl border border-gray-700 hover:border-blue-500 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 sm:p-6 bg-[#1f2937] rounded-xl border border-gray-700 hover:border-blue-500 transition-colors" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-xl font-bold text-white mb-3">Email Sequences</h3>
                     <p class="text-gray-400">That move people through your funnel systematically instead of hoping they remember you exist.</p>
                 </div>
-                <div class="p-6 bg-[#1f2937] rounded-xl border border-gray-700 hover:border-blue-500 transition-colors" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 sm:p-6 bg-[#1f2937] rounded-xl border border-gray-700 hover:border-blue-500 transition-colors" data-aos="fade-up" data-aos-delay="300">
                     <h3 class="text-xl font-bold text-white mb-3">Ad Copy & Funnels</h3>
                     <p class="text-gray-400">Stop the scroll and start real conversations. Complete architecture from first touch to closed deal.</p>
                 </div>
@@ -312,26 +335,26 @@
         </div>
     </section>
 
-    <section id="case-study" class="py-24 px-6 bg-white text-gray-900">
+    <section id="case-study" class="py-16 sm:py-24 px-4 sm:px-6 bg-white text-gray-900">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 font-heading text-center" data-aos="fade-up">Real Example Of How This Works</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 font-heading text-center" data-aos="fade-up">Real Example Of How This Works</h2>
             
-            <div class="prose prose-lg mx-auto text-gray-700 leading-relaxed mb-12" data-aos="fade-up">
+            <div class="prose prose-sm sm:prose-lg mx-auto text-gray-700 leading-relaxed mb-8 sm:mb-12 max-w-full overflow-hidden" data-aos="fade-up">
                 <p>I worked with a lead generation company.</p>
                 <p>Their original headline said: <span class="bg-gray-200 px-2 py-1 rounded text-gray-900 font-mono text-base">"Let Your Hunters Hunt, We'll Handle The Rest."</span></p>
                 <p>Sounds professional, right? Clear. Simple. <br><strong>Except it completely missed what their ideal client was actually feeling.</strong></p>
                 <p>CEOs weren't thinking "I need someone to handle the rest." They were thinking "Why are my $150K closers spending 60% of their time on prospecting work they hate?"</p>
                 
-                <div class="my-10 grid md:grid-cols-2 gap-8">
-                    <div class="p-6 bg-red-50 rounded-xl border border-red-100">
+                <div class="my-8 sm:my-10 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+                    <div class="p-4 sm:p-6 bg-red-50 rounded-xl border border-red-100">
                         <h4 class="font-bold text-red-800 mb-2">Old Approach (Vendor)</h4>
                         <p class="italic text-gray-600">"Let Your Hunters Hunt, We'll Handle The Rest"</p>
                         <p class="text-sm mt-4 text-gray-500">Focused on what they did. Positioned as a commodity lead gen shop.</p>
                     </div>
-                    <div class="p-6 bg-green-50 rounded-xl border border-green-100 shadow-lg relative transform md:-translate-y-4">
+                    <div class="p-4 sm:p-6 bg-green-50 rounded-xl border border-green-100 shadow-lg relative transform md:-translate-y-4">
                         <div class="absolute -top-3 right-4 bg-green-600 text-white text-xs px-2 py-1 rounded uppercase tracking-wide">My Fix</div>
                         <h4 class="font-bold text-green-800 mb-2">New Approach (Partner)</h4>
-                        <p class="italic text-gray-800 font-medium">"Stop Watching Your Best Salespeople Burn Out on Prospecting Work They Hate (While Your Pipeline Stays Empty)"</p>
+                        <p class="italic text-gray-800 font-medium text-sm sm:text-base break-words">"Stop Watching Your Best Salespeople Burn Out on Prospecting Work They Hate (While Your Pipeline Stays Empty)"</p>
                         <p class="text-sm mt-4 text-gray-600">Focused on the pain keeping leaders awake. Positioned as sales team liberation.</p>
                     </div>
                 </div>
@@ -340,19 +363,19 @@
                 <p>That's what I do. I find where your positioning is accidentally commoditizing you and rebuild it around what your clients actually care about.</p>
             </div>
 
-            <div class="text-center" data-aos="fade-up">
-                <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-flex flex-col items-center justify-center px-10 py-4 rounded-lg uppercase tracking-wider shadow-xl hover:scale-105 transform transition-transform">
-                    <span class="text-xl font-bold">I Want That Level Of Analysis</span>
+            <div class="text-center px-2 sm:px-0" data-aos="fade-up">
+                <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-flex flex-col items-center justify-center w-full max-w-sm sm:max-w-none sm:w-auto px-6 sm:px-10 py-4 rounded-lg uppercase tracking-wider shadow-xl hover:scale-105 transform transition-transform">
+                    <span class="text-base sm:text-xl font-bold">I Want That Level Of Analysis</span>
                     <span class="text-sm font-light opacity-90 mt-1">Book Here</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-[#0f1115]">
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-[#0f1115]">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-12 font-heading text-white" data-aos="fade-up">What Some of My Students Say:</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 font-heading text-white" data-aos="fade-up">What Some of My Students Say:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div data-aos="fade-right">
                     <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/695d060a65437_WhatsAppImage2026-01-06at5.25.40PM.jpeg" class="proof-img w-full">
                 </div>
@@ -363,15 +386,15 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-[#161b22]">
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-[#161b22]">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 font-heading text-white" data-aos="fade-up">What Actually Happens On The Call</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 font-heading text-white" data-aos="fade-up">What Actually Happens On The Call</h2>
             
-            <div class="space-y-6 text-xl font-light text-gray-300 leading-relaxed" data-aos="fade-up">
+            <div class="space-y-4 sm:space-y-6 text-base sm:text-xl font-light text-gray-300 leading-relaxed" data-aos="fade-up">
                 <p>No games. No pressure. No bait-and-switch.</p>
                 <div class="w-16 h-1 bg-blue-600 mx-auto my-8"></div>
                 <p><strong class="text-white">Here's the real agenda:</strong></p>
-                <ul class="text-left space-y-4 max-w-xl mx-auto mt-8">
+                <ul class="text-left space-y-3 sm:space-y-4 max-w-xl mx-auto mt-6 sm:mt-8">
                     <li class="flex items-start gap-3">
                         <i class="fas fa-check text-blue-500 mt-1.5"></i>
                         <span>First, I'll walk you through what I found. The specific copy mistakes costing you deals.</span>
@@ -394,12 +417,12 @@
         </div>
     </section>
 
-    <section id="investment" class="py-24 px-6 bg-gradient-to-br from-[#0f1115] to-[#1e232e] border-y border-gray-800">
+    <section id="investment" class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-[#0f1115] to-[#1e232e] border-y border-gray-800">
         <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold font-heading text-white mb-2">The Investment Talk</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-2">The Investment Talk</h2>
             <p class="text-lg text-gray-500 mb-12 uppercase tracking-widest font-semibold text-xs">(Let's Just Get This Out Of The Way)</p>
             
-            <div class="bg-red-900/10 border border-red-900/30 p-6 rounded-lg mb-8 inline-block w-full max-w-xl mx-auto">
+            <div class="bg-red-900/10 border border-red-900/30 p-4 sm:p-6 rounded-lg mb-6 sm:mb-8 inline-block w-full max-w-xl mx-auto">
                 <p class="text-red-400 font-bold text-xl mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> This isn't cheap.</p>
                 <p class="text-gray-400">If you're looking for $300 Fiverr copy, this definitely ain't it.</p>
             </div>
@@ -408,7 +431,7 @@
                 <p>What I do requires strategic thinking, market research, competitor analysis, and behavioral psychology application. That takes time. That takes expertise.</p>
             </div>
 
-            <div class="bg-[#161b22] p-8 rounded-xl border border-gray-700 text-left inline-block w-full max-w-xl shadow-2xl">
+            <div class="bg-[#161b22] p-4 sm:p-6 md:p-8 rounded-xl border border-gray-700 text-left inline-block w-full max-w-xl shadow-2xl">
                 <h4 class="text-white font-bold mb-4 border-b border-gray-700 pb-2">Projects range from:</h4>
                 <ul class="space-y-3 text-gray-300">
                     <li class="flex items-start gap-3"><i class="fas fa-check text-blue-500 mt-1"></i> Single landing page rebuild</li>
@@ -425,8 +448,8 @@
                 <p class="text-2xl font-bold text-white pt-4">The people I work with see this as <span class="text-blue-500">leverage</span>, not cost.</p>
             </div>
 
-            <div class="mt-12">
-                <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-flex flex-col items-center justify-center px-12 py-5 rounded-full uppercase tracking-wider shadow-xl text-lg hover:scale-105 transform transition-transform">
+            <div class="mt-8 sm:mt-12">
+                <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-flex flex-col items-center justify-center w-full max-w-sm sm:max-w-none sm:w-auto px-8 sm:px-12 py-4 sm:py-5 rounded-full uppercase tracking-wider shadow-xl text-base sm:text-lg hover:scale-105 transform transition-transform">
                     Ready to Invest in Growth?
                     <span class="text-sm opacity-80 normal-case mt-1 font-light">Let's Talk</span>
                 </a>
@@ -434,12 +457,12 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white text-gray-900">
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-white text-gray-900">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 font-heading text-center">Quick Questions You Probably Have</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 font-heading text-center">Quick Questions You Probably Have</h2>
             
             <div class="space-y-4">
-                <details class="group bg-gray-50 p-6 rounded-lg border border-gray-200 cursor-pointer">
+                <details class="group bg-gray-50 p-4 sm:p-6 rounded-lg border border-gray-200 cursor-pointer">
                     <summary class="flex justify-between items-center font-bold text-lg">
                         Do you work with my industry?
                         <span class="transition group-open:rotate-180">
@@ -451,7 +474,7 @@
                     </div>
                 </details>
 
-                <details class="group bg-gray-50 p-6 rounded-lg border border-gray-200 cursor-pointer">
+                <details class="group bg-gray-50 p-4 sm:p-6 rounded-lg border border-gray-200 cursor-pointer">
                     <summary class="flex justify-between items-center font-bold text-lg">
                         How long does this take?
                         <span class="transition group-open:rotate-180">
@@ -463,7 +486,7 @@
                     </div>
                 </details>
 
-                <details class="group bg-gray-50 p-6 rounded-lg border border-gray-200 cursor-pointer">
+                <details class="group bg-gray-50 p-4 sm:p-6 rounded-lg border border-gray-200 cursor-pointer">
                     <summary class="flex justify-between items-center font-bold text-lg">
                         Can you just improve what I already have?
                         <span class="transition group-open:rotate-180">
@@ -475,7 +498,7 @@
                     </div>
                 </details>
 
-                <details class="group bg-gray-50 p-6 rounded-lg border border-gray-200 cursor-pointer">
+                <details class="group bg-gray-50 p-4 sm:p-6 rounded-lg border border-gray-200 cursor-pointer">
                     <summary class="flex justify-between items-center font-bold text-lg">
                         Why should I trust you?
                         <span class="transition group-open:rotate-180">
@@ -490,14 +513,14 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-[#0f1115]">
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-[#0f1115]">
         <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-3xl font-bold mb-8 font-heading text-white">Here's What It Comes Down To</h2>
-            <div class="text-xl text-gray-300 space-y-6 leading-relaxed">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 font-heading text-white">Here's What It Comes Down To</h2>
+            <div class="text-base sm:text-xl text-gray-300 space-y-4 sm:space-y-6 leading-relaxed">
                 <p>You're good at what you do. Your website just doesn't show it.</p>
                 <p>Every day you keep that current copy live, you're losing deals to competitors who aren't better than you - they just position themselves better.</p>
                 
-                <div class="grid md:grid-cols-2 gap-6 my-12 text-left">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 my-8 sm:my-12 text-left">
                     <div class="p-6 border border-gray-700 rounded-lg opacity-50">
                         <h4 class="font-bold text-gray-400 mb-2">Option 1</h4>
                         <p class="text-sm">Keep explaining your value on every sales call, competing on price, wondering why your close rate isn't higher.</p>
@@ -508,24 +531,24 @@
                     </div>
                 </div>
 
-                <p class="font-bold text-white text-2xl">One of those options makes you more money. The other one wastes it.</p>
+                <p class="font-bold text-white text-xl sm:text-2xl">One of those options makes you more money. The other one wastes it.</p>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white text-gray-900 border-t-8 border-blue-600">
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-white text-gray-900 border-t-8 border-blue-600">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-5xl font-bold mb-8 font-heading" data-aos="fade-up">Still Reading?</h2>
+            <h2 class="text-3xl sm:text-5xl font-bold mb-6 sm:mb-8 font-heading" data-aos="fade-up">Still Reading?</h2>
             
-            <div class="text-lg text-gray-600 space-y-6 mb-12" data-aos="fade-up">
+            <div class="text-base sm:text-lg text-gray-600 space-y-4 sm:space-y-6 mb-8 sm:mb-12" data-aos="fade-up">
                 <p>That means you're interested but hesitating. Fair enough.</p>
                 <p>But here's what I know: you got that email. You read it. You came here. That's not random behavior.</p>
                 <p>The only question is whether you're going to do something about it this week or keep thinking about it for the next three months while your competitors keep winning deals you should be closing.</p>
                 <p class="font-bold text-gray-900">The problem isn't going to fix itself.</p>
             </div>
 
-            <div data-aos="zoom-in">
-                <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-flex flex-col items-center justify-center px-12 py-5 rounded-full uppercase tracking-wider shadow-xl text-lg">
+            <div data-aos="zoom-in" class="w-full max-w-sm sm:max-w-none sm:w-auto mx-auto">
+                <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-flex flex-col items-center justify-center w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 rounded-full uppercase tracking-wider shadow-xl text-base sm:text-lg">
                     Let's Fix It Together
                     <span class="text-sm opacity-80 normal-case mt-1 font-light">Book a Call</span>
                 </a>
@@ -544,6 +567,7 @@
             once: true,
             offset: 100
         });
+
     </script>
 </body>
 </html>
