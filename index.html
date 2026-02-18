@@ -35,6 +35,14 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
+        /* Section#top: scale vertical padding on mobile to reduce excessive gaps */
+        @media (max-width: 639px) {
+            section#top {
+                padding-top: clamp(1.25rem, 4vh, 2rem);
+                padding-bottom: clamp(1.25rem, 4vh, 2rem);
+            }
+        }
+
         /* Reduce navbar & side gaps on mobile */
         @media (max-width: 639px) {
             .header-inner {
@@ -145,7 +153,7 @@
                         <span class="hidden sm:inline">Real Example</span>
                     </a>
                     <a href="#investment" class="hover:text-white transition-colors whitespace-nowrap">
-                        <span class="sm:hidden">Invest</span>
+                        <span class="sm:hidden">investment</span>
                         <span class="hidden sm:inline">Investment</span>
                     </a>
                 </nav>
@@ -154,25 +162,25 @@
         </div>
     </header>
 
-    <section id="top" class="min-h-screen flex flex-col justify-center items-center px-2 sm:px-6 py-16 sm:py-20 relative">
+    <section id="top" class="min-h-screen flex flex-col justify-center items-center px-2 sm:px-6 py-8 sm:py-16 md:py-20 relative">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-20 pointer-events-none">
             <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-blue-600 rounded-full blur-[128px]"></div>
             <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-purple-600 rounded-full blur-[128px]"></div>
         </div>
 
         <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 tracking-tight text-white">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-8 tracking-tight text-white">
                 Came from my <span class="text-blue-500">email?</span>
             </h1>
             
-            <div class="space-y-4 sm:space-y-6 text-lg sm:text-xl md:text-2xl text-gray-300 font-light">
+            <div class="space-y-3 sm:space-y-6 text-lg sm:text-xl md:text-2xl text-gray-300 font-light">
                 <p>Let's be real.</p>
                 <p>I don't send those breakdowns to waste your time.</p>
                 <p>If I pointed out something in your copy, it's because I saw <span class="text-white font-semibold border-b border-blue-500">real money being left on the table.</span></p>
                 <p>And yeah, I can actually help you fix it. That's why you're here, right?</p>
             </div>
 
-            <div class="mt-10 sm:mt-12 w-full max-w-sm sm:max-w-none sm:w-auto">
+            <div class="mt-6 sm:mt-12 w-full max-w-sm sm:max-w-none sm:w-auto">
                 <a href="https://calendly.com/hassangonnascale/30min" class="btn-primary inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-xl font-bold rounded-full uppercase tracking-wider">
                     Let's Talk
                     <span class="ml-2 text-sm opacity-80 normal-case font-normal">(It's Free)</span>
