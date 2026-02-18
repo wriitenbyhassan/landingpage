@@ -99,14 +99,15 @@
         /* Mobile nav - horizontal scroll, no hamburger */
         @media (max-width: 767px) {
             .nav-links {
-                flex: 1;
-                min-w-0;
+                flex: 1 1 0;
+                min-w: 0;
                 justify-content: flex-end;
                 overflow-x: auto;
                 overflow-y: hidden;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
                 -ms-overflow-style: none;
+                padding-right: 2px;
             }
             .nav-links::-webkit-scrollbar {
                 display: none;
@@ -114,20 +115,21 @@
             .nav-links a {
                 white-space: nowrap;
                 flex-shrink: 0;
+                padding: 0.25rem 0;
             }
         }
     </style>
 </head>
 <body class="antialiased leading-relaxed pt-16 md:pt-24">
 
-    <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-800 bg-[#0b0d11]/80 backdrop-blur">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-start sm:justify-between gap-3 sm:gap-0 h-16 md:h-20">
+    <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-800 bg-[#0b0d11]/80 backdrop-blur overflow-x-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0">
+            <div class="flex items-center justify-between h-16 md:h-20 min-w-0 gap-2">
                 <a href="#top" class="flex items-center gap-2 sm:gap-3 shrink-0">
                     <img src="assets/logo.png" alt="Written By Hassan logo" class="h-8 w-auto sm:h-9 md:h-10">
                     <span class="hidden sm:inline text-xs sm:text-base font-semibold tracking-wide text-white">Written By Hassan</span>
                 </a>
-                <nav class="nav-links flex items-center gap-3 sm:gap-6 md:gap-8 text-xs sm:text-sm font-medium text-gray-300" id="nav-links">
+                <nav class="nav-links flex items-center gap-2 sm:gap-6 md:gap-8 text-[11px] sm:text-sm font-medium text-gray-300" id="nav-links">
                     <a href="#people" class="hover:text-white transition-colors">Mentors</a>
                     <a href="#process" class="hover:text-white transition-colors">How I Fix It</a>
                     <a href="#case-study" class="hover:text-white transition-colors whitespace-nowrap">Real Example</a>
