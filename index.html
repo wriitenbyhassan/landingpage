@@ -18,6 +18,7 @@
     <style>
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         /* Custom Colors & Base Styles */
         :root {
@@ -33,6 +34,12 @@
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+        }
+        /* Reduce navbar & side gaps on mobile */
+        @media (max-width: 639px) {
+            .header-inner {
+                gap: 0;
+            }
         }
 
         h1, h2, h3, h4, .font-heading {
@@ -105,14 +112,14 @@
 <body class="antialiased leading-relaxed pt-28 sm:pt-24">
 
     <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-800 bg-[#0b0d11]/80 backdrop-blur">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-5xl mx-auto px-2 sm:px-6 lg:px-8 w-full">
             <!--
                 FIX: Changed from a single flex-row (which caused overflow on mobile)
                 to flex-col on mobile and flex-row on sm+.
                 - Mobile: logo centered on row 1, nav links centered on row 2
                 - sm+: logo left, nav links right on a single row (original layout)
             -->
-            <div class="flex flex-col sm:flex-row items-center sm:justify-between py-2 sm:py-0 sm:h-20 gap-1 sm:gap-4">
+            <div class="header-inner flex flex-col sm:flex-row items-center sm:justify-between py-2 sm:py-0 sm:h-20 gap-0 sm:gap-4">
 
                 <!-- Logo -->
                 <a href="#top" class="flex items-center gap-2 shrink-0">
@@ -143,7 +150,7 @@
         </div>
     </header>
 
-    <section id="top" class="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 py-16 sm:py-20 relative">
+    <section id="top" class="min-h-screen flex flex-col justify-center items-center px-2 sm:px-6 py-16 sm:py-20 relative">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-20 pointer-events-none">
             <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-blue-600 rounded-full blur-[128px]"></div>
             <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-purple-600 rounded-full blur-[128px]"></div>
@@ -171,7 +178,7 @@
     </section>
 
     <section id="people" class="py-16 sm:py-20 bg-[#161b22] border-y border-gray-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div class="max-w-4xl mx-auto px-2 sm:px-6 text-center">
             <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 font-heading text-white" data-aos="fade-up">People Who I Learned From:</h2>
             
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 items-center justify-items-center">
@@ -206,7 +213,7 @@
         </div>
     </section>
 
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-[#0f1115] to-[#13161c]">
+    <section class="py-16 sm:py-24 px-2 sm:px-6 bg-gradient-to-b from-[#0f1115] to-[#13161c]">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 font-heading uppercase tracking-wide" data-aos="fade-up">
                 What people say when I share the insights:
@@ -226,7 +233,7 @@
         </div>
     </section>
 
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-white text-gray-900">
+    <section class="py-16 sm:py-24 px-2 sm:px-6 bg-white text-gray-900">
         <div class="max-w-3xl mx-auto text-center">
             <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 font-heading" data-aos="fade-up">Why This Actually Costs You Money</h2>
             
@@ -257,7 +264,7 @@
         </div>
     </section>
 
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-[#0f1115]">
+    <section class="py-16 sm:py-24 px-2 sm:px-6 bg-[#0f1115]">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 font-heading text-white" data-aos="fade-up">Some Reactions On My Emails:</h2>
             <div class="space-y-8 sm:space-y-12">
@@ -274,7 +281,7 @@
         </div>
     </section>
 
-    <section id="process" class="py-16 sm:py-24 px-4 sm:px-6 bg-[#161b22] relative overflow-hidden">
+    <section id="process" class="py-16 sm:py-24 px-2 sm:px-6 bg-[#161b22] relative overflow-hidden">
         <div class="max-w-3xl mx-auto relative z-10">
             <div class="text-center mb-10 sm:mb-16">
                 <h2 class="text-2xl sm:text-4xl font-bold font-heading text-white mb-4" data-aos="fade-up">How I Actually Fix This:</h2>
@@ -313,7 +320,7 @@
         </div>
     </section>
 
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-[#13161c] to-[#0f1115]">
+    <section class="py-16 sm:py-24 px-2 sm:px-6 bg-gradient-to-b from-[#13161c] to-[#0f1115]">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 font-heading text-white" data-aos="fade-up">What I Can Actually Do For You</h2>
             <p class="text-gray-400 mb-12 text-lg">Depending on what you need:</p>
@@ -341,7 +348,7 @@
         </div>
     </section>
 
-    <section id="case-study" class="py-16 sm:py-24 px-4 sm:px-6 bg-white text-gray-900">
+    <section id="case-study" class="py-16 sm:py-24 px-2 sm:px-6 bg-white text-gray-900">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 font-heading text-center" data-aos="fade-up">Real Example Of How This Works</h2>
             
@@ -378,7 +385,7 @@
         </div>
     </section>
 
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-[#0f1115]">
+    <section class="py-16 sm:py-24 px-2 sm:px-6 bg-[#0f1115]">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 font-heading text-white" data-aos="fade-up">What Some of My Students Say:</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
@@ -392,7 +399,7 @@
         </div>
     </section>
 
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-[#161b22]">
+    <section class="py-16 sm:py-24 px-2 sm:px-6 bg-[#161b22]">
         <div class="max-w-3xl mx-auto text-center">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 font-heading text-white" data-aos="fade-up">What Actually Happens On The Call</h2>
             
@@ -423,7 +430,7 @@
         </div>
     </section>
 
-    <section id="investment" class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-[#0f1115] to-[#1e232e] border-y border-gray-800">
+    <section id="investment" class="py-16 sm:py-24 px-2 sm:px-6 bg-gradient-to-br from-[#0f1115] to-[#1e232e] border-y border-gray-800">
         <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-white mb-2">The Investment Talk</h2>
             <p class="text-lg text-gray-500 mb-12 uppercase tracking-widest font-semibold text-xs">(Let's Just Get This Out Of The Way)</p>
@@ -463,7 +470,7 @@
         </div>
     </section>
 
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-white text-gray-900">
+    <section class="py-16 sm:py-24 px-2 sm:px-6 bg-white text-gray-900">
         <div class="max-w-3xl mx-auto">
             <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 font-heading text-center">Quick Questions You Probably Have</h2>
             
@@ -519,7 +526,7 @@
         </div>
     </section>
 
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-[#0f1115]">
+    <section class="py-16 sm:py-24 px-2 sm:px-6 bg-[#0f1115]">
         <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
             <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 font-heading text-white">Here's What It Comes Down To</h2>
             <div class="text-base sm:text-xl text-gray-300 space-y-4 sm:space-y-6 leading-relaxed">
@@ -542,7 +549,7 @@
         </div>
     </section>
 
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-white text-gray-900 border-t-8 border-blue-600">
+    <section class="py-16 sm:py-24 px-2 sm:px-6 bg-white text-gray-900 border-t-8 border-blue-600">
         <div class="max-w-3xl mx-auto text-center">
             <h2 class="text-3xl sm:text-5xl font-bold mb-6 sm:mb-8 font-heading" data-aos="fade-up">Still Reading?</h2>
             
