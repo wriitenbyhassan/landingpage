@@ -21,9 +21,9 @@
         }
         /* Custom Colors & Base Styles */
         :root {
-            --bg-color: #0f1115; /* Deep Charcoal/Black */
+            --bg-color: #0f1115;
             --card-bg: #161b22;
-            --accent: #3b82f6; /* Electric Blue for Trust/Tech */
+            --accent: #3b82f6;
             --text-main: #e2e8f0;
             --text-muted: #94a3b8;
         }
@@ -95,31 +95,50 @@
             0%    {opacity: 0; transform: translateY(-10px)}
             100%  {opacity: 1; transform: translateY(0)}
         }
-
-        /* Mobile nav - no gap between logo and links */
-        @media (max-width: 767px) {
-            .header-inner {
-                justify-content: flex-start;
-                gap: 0;
-            }
-        }
     </style>
 </head>
-<body class="antialiased leading-relaxed pt-16 md:pt-24">
+<!-- 
+    FIX EXPLANATION:
+    - Mobile: pt-28 to account for the two-row stacked header (logo row + nav row)
+    - sm+: pt-24 as before for the single-row header
+-->
+<body class="antialiased leading-relaxed pt-28 sm:pt-24">
 
-    <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-800 bg-[#0b0d11]/80 backdrop-blur overflow-x-hidden">
-        <div class="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
-            <div class="header-inner flex items-center justify-between h-16 md:h-20 md:gap-4">
-                <a href="#top" class="flex items-center gap-2 sm:gap-3 shrink-0">
+    <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-800 bg-[#0b0d11]/80 backdrop-blur">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <!--
+                FIX: Changed from a single flex-row (which caused overflow on mobile)
+                to flex-col on mobile and flex-row on sm+.
+                - Mobile: logo centered on row 1, nav links centered on row 2
+                - sm+: logo left, nav links right on a single row (original layout)
+            -->
+            <div class="flex flex-col sm:flex-row items-center sm:justify-between py-2 sm:py-0 sm:h-20 gap-1 sm:gap-4">
+
+                <!-- Logo -->
+                <a href="#top" class="flex items-center gap-2 shrink-0">
                     <img src="assets/logo.png" alt="Written By Hassan logo" class="h-8 w-auto sm:h-9 md:h-10">
-                    <span class="hidden sm:inline text-xs sm:text-base font-semibold tracking-wide text-white">Written By Hassan</span>
+                    <span class="text-sm sm:text-base font-semibold tracking-wide text-white">Written By Hassan</span>
                 </a>
-                <nav class="nav-links flex items-center gap-1.5 sm:gap-6 md:gap-8 text-xs sm:text-sm font-medium text-gray-300 shrink-0" id="nav-links">
-                    <a href="#people" class="hover:text-white transition-colors">Mentors</a>
-                    <a href="#process" class="hover:text-white transition-colors">How I Fix It</a>
-                    <a href="#case-study" class="hover:text-white transition-colors whitespace-nowrap">Real Example</a>
-                    <a href="#investment" class="hover:text-white transition-colors">Investment</a>
+
+                <!-- Nav Links -->
+                <!-- Mobile: full-width row, centered, smaller text, tighter gaps -->
+                <!-- sm+: auto-width, original spacing -->
+                <nav class="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 text-[11px] sm:text-sm font-medium text-gray-300 w-full sm:w-auto">
+                    <a href="#people" class="hover:text-white transition-colors whitespace-nowrap">Mentors</a>
+                    <a href="#process" class="hover:text-white transition-colors whitespace-nowrap">
+                        <span class="sm:hidden">Process</span>
+                        <span class="hidden sm:inline">How I Fix It</span>
+                    </a>
+                    <a href="#case-study" class="hover:text-white transition-colors whitespace-nowrap">
+                        <span class="sm:hidden">Example</span>
+                        <span class="hidden sm:inline">Real Example</span>
+                    </a>
+                    <a href="#investment" class="hover:text-white transition-colors whitespace-nowrap">
+                        <span class="sm:hidden">Invest</span>
+                        <span class="hidden sm:inline">Investment</span>
+                    </a>
                 </nav>
+
             </div>
         </div>
     </header>
@@ -554,7 +573,6 @@
             once: true,
             offset: 100
         });
-
     </script>
 </body>
 </html>
