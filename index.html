@@ -63,7 +63,7 @@
             font-family: 'Outfit', sans-serif;
         }
 
-        /* Custom Button Styling */
+        /* Custom Button Styling - animation in both states, hover differentiated by lighting/contrast */
         .btn-primary {
             position: relative;
             overflow: hidden;
@@ -71,12 +71,14 @@
             background-size: 220% 220%;
             background-position: 0% 50%;
             color: white;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, background-position 0.6s ease;
-            box-shadow: 0 4px 18px 0 rgba(37, 99, 235, 0.55);
             transform-origin: center;
+            animation: btn-primary-pop 1.3s ease-in-out infinite alternate;
+            box-shadow: 0 4px 18px 0 rgba(37, 99, 235, 0.45);
+            filter: brightness(0.95) contrast(0.98);
+            transition: filter 0.3s ease, box-shadow 0.3s ease;
         }
 
-        @keyframes btn-primary-hover-pop {
+        @keyframes btn-primary-pop {
             0% {
                 transform: translateY(0) scale(1) rotate(0deg);
                 background-position: 0% 50%;
@@ -92,8 +94,8 @@
         }
 
         .btn-primary:hover {
-            animation: btn-primary-hover-pop 1.3s ease-in-out infinite alternate;
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.7);
+            filter: brightness(1.15) contrast(1.08);
+            box-shadow: 0 10px 32px rgba(56, 189, 248, 0.75);
         }
 
         /* Image Styling */
@@ -215,7 +217,7 @@
                     <span class="text-base sm:text-xl font-semibold">Eugene Schwartz</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3 sm:gap-4 group col-span-2 md:col-span-1" data-aos="fade-up" data-aos-delay="400">
+                <div class="flex flex-col items-center gap-3 sm:gap-4 group" data-aos="fade-up" data-aos-delay="400">
                     <div class="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-500 transition-colors">
                         <img src="https://d1yei2z3i6k35z.cloudfront.net/5009847/698b651e3864a_danhenry_logo.jpg" alt="Dan Henry" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
