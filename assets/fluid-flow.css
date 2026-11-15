@@ -1,12 +1,23 @@
-/* Match the reference's subtle, fixed, transparent dye layer. */
+/* Match the reference's subtle, fixed, transparent dye layer.
+   The canvas stays above in-flow section backgrounds so the dye shows in
+   the gaps, and below every content layer so cards, text, and nav stay
+   fully opaque. Pointer events stay on the content. */
 #fluid-flow {
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
+    z-index: 1;
     pointer-events: none;
     opacity: .3;
+}
+
+/* Header already sits at z-50. The hero glow is absolute and stays behind.
+   These wrappers are the cards, headings, and text. */
+body > section > *:not(.absolute),
+body > footer > * {
+    position: relative;
+    z-index: 2;
 }
 @media (prefers-reduced-motion: reduce) {
     #fluid-flow { display: none; }
